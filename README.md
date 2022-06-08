@@ -11,7 +11,9 @@
 
 - Migrer l'application sur son pc en local:
 
-	1 - Cloner le répertoire du git avec la commande une commande git clone https://github.com/jerem988/test-paravent.git
+	1 - Cloner le répertoire du git avec la commande la commande:
+
+		- git clone https://github.com/jerem988/test-paravent.git
 	
 	2 - Renommer le fichier .env.example en .env
 	
@@ -25,7 +27,7 @@
 	
 	- php artisan surface-abri:get
 
-- Pour lancer les tests unitaire:
+- Pour lancer les tests unitaires:
 	
 	- php artisan test
 
