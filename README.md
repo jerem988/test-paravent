@@ -13,21 +13,24 @@
 
 	1 - Cloner le répertoire du git avec la commande la commande:
 
-		- git clone https://github.com/jerem988/test-paravent.git
+		git clone https://github.com/jerem988/test-paravent.git
 	
 	2 - Renommer le fichier .env.example en .env
 	
 	3 - Dans un invité de commande se positionner à la racine du projet et lancer la commande suivante:
 		
-		- composer install
+		composer install
 
 - Le fichier avec le jeux de données modifiable se trouve dans le répertoire storage/app/data-set-continent
 
 - Pour executer le script lancer la commande:
-	
-	- php artisan surface-abri:get
 
+		php artisan surface-abri:get
+	
+	
 - Pour lancer les tests unitaires:
 	
-	- php artisan test
+		php artisan test
+	
+	
 
