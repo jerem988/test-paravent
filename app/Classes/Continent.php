@@ -6,20 +6,18 @@ use Illuminate\Http\Request;
 
 class Continent
 {
-    private int $width;
-    private array $terrain;
-    public const MIN_WIDTH = 1;
-    public const MAX_WIDTH = 100000;
-    public const MIN_HEIGHT = 0;
-    public const MAX_HEIGHT = 100000;
+    private const MIN_WIDTH = 1;
+    private const MAX_WIDTH = 100000;
+    private const MIN_HEIGHT = 0;
+    private const MAX_HEIGHT = 100000;
 
-    public function __construct(int $width, string $terrain)
+    public function __construct(private int $width, private string|array $terrain)
     {
         $this->setWidth($width);
         $this->setTerrain($terrain);
     }
 
-    private function setWidth($width): void {
+    private function setWidth(int $width): void {
 
         if ($width < self::MIN_WIDTH) {
             throw new \InvalidArgumentException(
@@ -49,7 +47,7 @@ class Continent
      *
      * @param string $terrain
      */
-    private function setTerrain($terrain): void {
+    private function setTerrain(string $terrain): void {
 
         $terrain = explode(' ', $terrain);
 
@@ -98,11 +96,11 @@ class Continent
      */
     public function getSurfaceAbriDisponible(): int
     {
-        $area = 0;
+        $safeArea = 0;
         $highest = 0;
 
         // On boucle sur l'ensemble du continent
-        for ($i = 0; $i < $this->width; ++$i) {
+        for ($i = 0; $i < $this->width; $i++) {
             $height = $this->terrain[$i] ?? 0;
 
             if ($height > $highest) {
@@ -110,10 +108,10 @@ class Continent
                 $highest = $height;
             } else {
                 // Surface du terrain protégée de la tempête
-                $area += $highest - $height;
+                $safeArea += $highest - $height;
             }
         }
 
-        return $area;
+        return $safeArea;
     }
 }
