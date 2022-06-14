@@ -65,7 +65,7 @@ class Continent
                 );
             }
 
-            if ($height < 1) {
+            if ($height < self::MIN_HEIGHT) {
                 throw new \InvalidArgumentException(
                     sprintf(
                         'Height ne peut pas être inférieur à %s ; "%s" renseigné',
@@ -75,7 +75,7 @@ class Continent
                 );
             }
 
-            if ($height > 100000) {
+            if ($height > self::MAX_HEIGHT) {
                 throw new \InvalidArgumentException(
                     sprintf(
                         'Height ne peut pas être supérieur à %s ; "%s" renseigné',
