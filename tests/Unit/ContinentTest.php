@@ -61,6 +61,6 @@ class ContinentTest extends TestCase
     public function testGetSurfaceAbriDisponible()
     {
         $continent = new Continent(10, '30 27 17 42 29 12 14 41 42 42');
-        $this->assertEquals(88, $continent->getSurfaceAbriDisponible());
+        $this->assertEquals(6, $continent->getSurfaceAbriDisponible());
     }
 }

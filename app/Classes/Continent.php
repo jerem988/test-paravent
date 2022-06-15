@@ -3,6 +3,7 @@
 namespace App\Classes;
 
 use Illuminate\Http\Request;
+use function Symfony\Component\String\u;
 
 class Continent
 {
@@ -107,8 +108,12 @@ class Continent
                 //Plus haute alitutude du terrain protégée
                 $highest = $height;
             } else {
-                // Surface du terrain protégée de la tempête
-                $safeArea += $highest - $height;
+                // Surface du terrain protégée de la tempête = ne pas utiliser, surface à incrémenter par 1
+                //$safeArea += $highest - $height; (surface en nombre)
+
+                if($highest - $height >= 1 ) {
+                    $safeArea += 1;
+                }
             }
         }
 
